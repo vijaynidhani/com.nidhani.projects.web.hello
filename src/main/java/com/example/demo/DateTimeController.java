@@ -3,6 +3,7 @@ package com.example.demo;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -19,5 +20,10 @@ public class DateTimeController {
     @GetMapping("/datetime/iso")
     public String currentDateTimeIso() {
         return LocalDateTime.now().toString();
+    }
+
+    @GetMapping("/datetime/epoch")
+    public long currentEpochMillis() {
+        return Instant.now().toEpochMilli();
     }
 }

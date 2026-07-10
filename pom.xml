@@ -38,6 +38,15 @@
         </dependency>
     </dependencies>
 
+    <profiles>
+        <profile>
+            <id>weather-api</id>
+            <properties>
+                <weather.api.key>${env.WEATHER_API_KEY}</weather.api.key>
+            </properties>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
