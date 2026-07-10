@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
@@ -23,6 +24,7 @@ public class WeatherService {
         this.baseUrl = baseUrl;
     }
 
+    @Cacheable(value = "temperature", key = "#city")
     public TemperatureResponse getTemperature(String city) {
         if (apiKey == null || apiKey.isEmpty()) {
             return new TemperatureResponse(city, "API key not configured", null, null);
