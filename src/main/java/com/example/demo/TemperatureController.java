@@ -22,10 +22,10 @@ public class TemperatureController {
         return weatherService.getTemperature("Delhi,IN");
     }
 
-    @GetMapping("/new-york")
-    public WeatherService.TemperatureResponse newYork() {
-        return weatherService.getTemperature("New York,US");
-    }
+    @GetMapping("/nyc")
+        public WeatherService.TemperatureResponse nyc() {
+            return weatherService.getTemperature("New York,US");
+        }
 
     @GetMapping("/{city}")
     public WeatherService.TemperatureResponse city(@PathVariable String city) {
